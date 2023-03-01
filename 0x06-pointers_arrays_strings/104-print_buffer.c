@@ -7,6 +7,7 @@
   * @size: buffer size
   * Return: no return
 **/
+
 void print_buffer(char *b, int size)
 {
 	int i, j, n, hex = 0;
