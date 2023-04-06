@@ -28,3 +28,18 @@ new_node->next = *head;
 *head = new_node;
 return (new_node);
 }
+current = *head;
+for (i = 0; i < idx - 1 && current != NULL; i++)
+current = current->next;
+
+if (current == NULL)
+{
+free(new_node);
+return (NULL);
+}
+
+new_node->next = current->next;
+current->next = new_node;
+
+return (new_node);
+}
