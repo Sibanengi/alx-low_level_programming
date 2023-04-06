@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "lists.h"
 
+
 /**
 * free_listint_safe - frees a listint_t list
 * @h: pointer to the head of the list
@@ -11,24 +12,24 @@
 */
 size_t free_listint_safe(listint_t **h)
 {
-size_t size = 0;
-listint_t *current, *next;
-
-if (h == NULL || *h == NULL)
-return (0);
-
-current = *h;
-*h = NULL;
+listint_t *current = *h, *temp;
+size_t count = 0;
 
 while (current != NULL)
 {
-size++;
-next = current->next;
-free(current);
-if (next >= current)
+count++;
+
+temp = current;
+current = current->next;
+
+free(temp);
+
+if (temp <= current)
+{
+*h = NULL;
 break;
-current = next;
+}
 }
 
-return (size);
+return (count);
 }
