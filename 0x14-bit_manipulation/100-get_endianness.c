@@ -13,5 +13,5 @@ int get_endianness(void)
 	uint32_t num = 1;
 	uint8_t *byte_ptr = (uint8_t *) &num;
 
-	return (*byte_ptr == 1) ? 1 : 0;
+	return ((*byte_ptr == 1) ? 1 : 0);
 }
